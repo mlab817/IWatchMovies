@@ -18,6 +18,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/movies', function () {
-    return \App\Http\Resources\MovieResource::collection(\App\Models\Movie::paginate());
-});
+Route::get('/movies', \App\Http\Controllers\API\MovieController::class);
